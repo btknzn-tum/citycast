@@ -1,0 +1,33 @@
+{
+  "name": "citycast-mobile",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "workspaceFolder": "/workspaces/citycast-mobile",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "msjsdiag.vscode-react-native"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [8081, 19006],
+  "portsAttributes": {
+    "8081": { "label": "Metro Bundler" },
+    "19006": { "label": "Expo Web" }
+  },
+
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}

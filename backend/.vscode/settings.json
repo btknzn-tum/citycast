@@ -1,0 +1,37 @@
+{
+  "python.defaultInterpreterPath": "/usr/local/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["--tb=short"],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/.DS_Store": true
+  },
+
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+
+  "sqltools.connections": [
+    {
+      "name": "citycast-dev",
+      "driver": "PostgreSQL",
+      "server": "localhost",
+      "port": 5432,
+      "database": "citycast",
+      "username": "citycast",
+      "password": "citycast"
+    }
+  ]
+}

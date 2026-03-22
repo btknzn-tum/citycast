@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: citycast
+      POSTGRES_PASSWORD: citycast
+      POSTGRES_DB: citycast
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U citycast"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8010:8010"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://citycast:citycast@postgres:5432/citycast
+      PORTAL_PASSWORD: ${PORTAL_PASSWORD:-dev}
+      PORTAL_ALLOWED_IPS: ${PORTAL_ALLOWED_IPS:-0.0.0.0/0}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      EMAIL_FROM: ${EMAIL_FROM:-studio@localhost}
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

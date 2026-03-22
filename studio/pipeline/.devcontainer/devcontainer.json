@@ -1,0 +1,26 @@
+{
+  "name": "citycast-pipeline",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "workspaceFolder": "/workspaces/citycast-pipeline",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "editor.formatOnSave": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      }
+    }
+  },
+
+  "postCreateCommand": "pip install -e '.[dev]'",
+  "remoteUser": "root"
+}

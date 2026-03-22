@@ -1,0 +1,23 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.DS_Store": true,
+    "**/.expo": true
+  },
+
+  "editor.tabSize": 2,
+  "editor.rulers": [100]
+}

@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+      VITE_CAPTCHA_SITE_KEY: ${VITE_CAPTCHA_SITE_KEY:-}
+    volumes:
+      - .:/app
+      - /app/node_modules

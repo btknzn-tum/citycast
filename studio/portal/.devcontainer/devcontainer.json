@@ -1,0 +1,41 @@
+{
+  "name": "citycast-portal",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "portal",
+  "workspaceFolder": "/app",
+
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "editor.formatOnSave": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [5432, 8010],
+  "portsAttributes": {
+    "5432": { "label": "Postgres" },
+    "8010": { "label": "Studio Portal" }
+  },
+
+  "remoteUser": "root"
+}
