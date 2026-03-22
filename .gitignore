@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+
+# Node
+node_modules/
+.next/
+dist/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+!.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Audio files (generated)
+*.wav
+*.mp3
+*.opus
+*.ogg
+
+# Piper TTS models
+*.onnx
+*.onnx.json
+
+# Database
+*.sqlite3
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Expo
+.expo/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
