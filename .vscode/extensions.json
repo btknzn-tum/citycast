@@ -1,0 +1,37 @@
+{
+  "recommendations": [
+    // Python
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+
+    // JavaScript / TypeScript
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+
+    // React / Tailwind
+    "bradlc.vscode-tailwindcss",
+    "dsznajder.es7-react-js-snippets",
+
+    // Docker
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+
+    // Database
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+
+    // Jinja2 templates
+    "samuelcolvin.jinjahtml",
+
+    // Git
+    "eamodio.gitlens",
+
+    // Testing
+    "ms-python.python",
+
+    // Misc
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml"
+  ]
+}

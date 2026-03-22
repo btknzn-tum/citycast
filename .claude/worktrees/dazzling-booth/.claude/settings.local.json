@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git -C /Users/batukaanozen/Documents/citycast log --oneline)",
+      "Bash(git -C /Users/batukaanozen/Documents/citycast show --name-only 187a24c)",
+      "Bash(git -C /Users/batukaanozen/Documents/citycast ls-files)",
+      "Bash(find /Users/batukaanozen/Documents/citycast -not -path */.git/* -print)",
+      "Skill(update-config)",
+      "Bash(find /Users/batukaanozen/Documents/citycast -maxdepth 3 -name package.json -o -name *.toml -o -name requirements.txt)",
+      "Read(//tmp/**)",
+      "Bash(rm /tmp/bash-log-test.txt)",
+      "Bash(osascript -e 'display notification \"\"Claude has finished\"\" with title \"\"Claude Code\"\"')",
+      "Bash(gh repo:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Read(//Users/batukaanozen/.config/claude-code/**)",
+      "Bash(curl -s https://api.github.com/repos/ComposioHQ/awesome-claude-skills/contents)",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(d[''''name''''], d[''''type'''']\\) for d in data if isinstance\\(data, list\\)]\")",
+      "Bash(curl -s \"https://api.github.com/repos/ComposioHQ/awesome-claude-skills/contents/template-skill\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(d[''''name''''], d[''''type'''']\\) for d in data]\")",
+      "Bash(curl -s \"https://api.github.com/repos/ComposioHQ/awesome-claude-skills/contents/artifacts-builder\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(d[''''name''''], d[''''download_url'''']\\) for d in data]\")",
+      "WebFetch(domain:fly.io)",
+      "Bash(docker ps:*)",
+      "Bash(docker compose:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "A file was just written or edited. Check the tool input in $ARGUMENTS to get the file path. Read that file and check if any new functions were added. If yes, write or update a local test for each new function — create a test file next to the source file if one doesn't exist yet (e.g. foo.test.ts next to foo.ts, test_foo.py next to foo.py). Keep tests minimal and runnable locally.",
+            "timeout": 120,
+            "statusMessage": "Writing tests for new functions..."
+          }
+        ]
+      }
+    ]
+  }
+}

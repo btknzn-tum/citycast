@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Docker: Start All",
+      "type": "shell",
+      "command": "docker compose up --build",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker: Start All (background)",
+      "type": "shell",
+      "command": "docker compose up -d --build",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker: Stop All",
+      "type": "shell",
+      "command": "docker compose down",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker: Logs",
+      "type": "shell",
+      "command": "docker compose logs -f",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Backend: Run Tests",
+      "type": "shell",
+      "command": "cd backend && python -m pytest -v --tb=short",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Studio: Run Tests",
+      "type": "shell",
+      "command": "cd studio && python -m pytest -v --tb=short",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Web: Dev Server",
+      "type": "shell",
+      "command": "cd frontend/web && npm run dev",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mobile: Expo Start",
+      "type": "shell",
+      "command": "cd frontend/mobile && npx expo start",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "DB: Run Migrations",
+      "type": "shell",
+      "command": "cd backend && alembic upgrade head",
+      "problemMatcher": []
+    }
+  ]
+}

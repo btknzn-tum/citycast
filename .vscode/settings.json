@@ -1,0 +1,93 @@
+{
+  // Python
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["--tb=short"],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+
+  // Ruff (Python formatter + linter)
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  // TypeScript / React
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // HTML / Jinja2 (studio portal templates)
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jinja-html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // CSS / Tailwind
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // Docker
+  "docker.composeFile": ["docker-compose.yml"],
+
+  // Files
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/node_modules": true,
+    "**/.DS_Store": true,
+    "**/.expo": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/__pycache__/**": true,
+    "**/.git/**": true
+  },
+
+  // Search
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/dist": true,
+    "**/.expo": true
+  },
+
+  // Editor
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "editor.minimap.enabled": false,
+
+  // Terminal
+  "terminal.integrated.cwd": "${workspaceFolder}",
+
+  // SQLTools (connect to local Postgres)
+  "sqltools.connections": [
+    {
+      "name": "citycast-dev",
+      "driver": "PostgreSQL",
+      "server": "localhost",
+      "port": 5432,
+      "database": "citycast",
+      "username": "citycast",
+      "password": "citycast"
+    }
+  ]
+}

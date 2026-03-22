@@ -1,0 +1,56 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend (FastAPI)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"],
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "jinja": true
+    },
+    {
+      "name": "Studio Portal",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["portal.app:app", "--host", "0.0.0.0", "--port", "8010", "--reload"],
+      "cwd": "${workspaceFolder}/studio",
+      "envFile": "${workspaceFolder}/studio/.env",
+      "jinja": true
+    },
+    {
+      "name": "Studio Pipeline (generate city)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/studio/pipeline/run.py",
+      "args": ["--city", "Paris", "--radius", "1", "--lang", "en"],
+      "cwd": "${workspaceFolder}/studio",
+      "envFile": "${workspaceFolder}/studio/.env"
+    },
+    {
+      "name": "Backend Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-v", "--tb=short"],
+      "cwd": "${workspaceFolder}/backend"
+    },
+    {
+      "name": "Studio Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-v", "--tb=short"],
+      "cwd": "${workspaceFolder}/studio"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack (Backend + Studio)",
+      "configurations": ["Backend (FastAPI)", "Studio Portal"]
+    }
+  ]
+}
